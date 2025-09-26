@@ -12,8 +12,8 @@ const test: TestFn<ExtendedTestContext> =
 
 test.beforeEach((t) => {
   const websiteData: WebsiteData[] = [
-    {hostSuffix: 'amazon.com'},
-    {hostSuffix: 'example.com'},
+    {hostSuffix: 'amazon.com', affiliateId: 'test-affiliate-1'},
+    {hostSuffix: 'example.com', affiliateId: 'test-affiliate-2'},
   ]
   const websiteRepository = new WebsiteRepository(websiteData)
   t.context.validator = new Validator(websiteRepository)

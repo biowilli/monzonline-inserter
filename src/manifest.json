@@ -1,11 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Amazon Affiliate Tag Injector",
-  "version": "2.0",
-  "description": "Injects your Amazon affiliate tag into the URL.",
+  "name": "Monzonline Affiliate Tag Injector",
+  "version": "1.0",
+  "description": "Automatically injects Monzonline affiliate tags into Amazon URLs for supported countries.",
   "permissions": [
-    "storage",
-    "scripting",
     "webNavigation",
     "tabs"
   ],
@@ -18,30 +16,13 @@
   },
   "host_permissions": [
     "*://amazon.de/*",
-    "*://amazon.co.uk/*",
     "*://amazon.com/*",
     "*://amazon.fr/*",
     "*://amazon.it/*",
     "*://amazon.es/*",
-    "*://amazon.nl/*",
-    "*://amazon.ca/*",
-    "*://amazon.com.au/*",
-    "*://amazon.com.br/*",
-    "*://amazon.com.mx/*",
-    "*://amazon.com.tr/*",
-    "*://amazon.com.ar/*",
-    "*://amazon.ae/*",
-    "*://amazon.sg/*",
-    "*://amazon.sa/*",
-    "*://amazon.co.jp/*",
-    "*://buy.geni.us/*"
+    "*://amazon.co.uk/*"
   ],
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
+    "service_worker": "background.js"
   }
 }

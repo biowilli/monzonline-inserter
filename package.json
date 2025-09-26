@@ -1,9 +1,9 @@
 {
-  "name": "referral-link-inserter",
+  "name": "monzonline-inserter",
   "license": "MIT",
   "version": "1.0.0",
   "repository": {
-    "url": "git+https://github.com/simwai/referral-link-inserter.git"
+    "url": "git+https://github.com/biowilli/monzonline-inserter.git"
   },
   "devDependencies": {
     "@ava/typescript": "^4.1.0",
@@ -21,7 +21,7 @@
   },
   "type": "module",
   "scripts": {
-    "zip": "rimraf referral-link-inserter.zip && bestzip referral-link-inserter.zip dist",
+    "zip": "rimraf monzonline-inserter.zip && bestzip monzonline-inserter.zip dist",
     "build": "rimraf dist && tsc && rimraf dist/tests/ && copyfiles -u 1 \"src/**/*.{html,json,png}\" dist",
     "test": "rimraf dist && ava && rimraf dist/tests",
     "lint": "xo --fix",

@@ -2,8 +2,8 @@
 import anyTest, {type TestFn} from 'ava'
 import sinon from 'sinon'
 import {NavigationHandler} from '../navigation-handler.js'
-import {websitesData} from '../background.js'
 import {type TestContext, type MockChrome} from './test-types.js'
+import {type WebsiteData} from '../types.js'
 
 type ExtendedTestContext = TestContext & {
   lastUpdatedTabUrl?: string
@@ -13,18 +13,19 @@ const test: TestFn<ExtendedTestContext> =
   anyTest as unknown as TestFn<ExtendedTestContext>
 
 test.beforeEach((t) => {
-  const mockAffiliateId = 'EXAMPLE'
+  const mockAffiliateId = 'monzonline-21'
+  const testWebsitesData: WebsiteData[] = [
+    {hostSuffix: 'amazon.de', affiliateId: 'monzonline-21'},
+    {hostSuffix: 'amazon.com', affiliateId: 'monzonline-21'},
+    {hostSuffix: 'amazon.fr', affiliateId: 'monzonline0d-21'},
+  ]
   const chromeMock: MockChrome = {
     runtime: {
       id: mockAffiliateId,
     },
     storage: {
       sync: {
-        get: sinon.stub().callsFake((key, callback) => {
-          console.log('Called storage.sync.get with key:', key)
-          const response = {[key as string]: mockAffiliateId}
-          callback(response)
-        }),
+        get: sinon.stub(),
       },
     },
     tabs: {
@@ -37,7 +38,7 @@ test.beforeEach((t) => {
 
   t.context = {
     affiliateId: mockAffiliateId,
-    navigationHandler: new NavigationHandler(websitesData, chromeMock),
+    navigationHandler: new NavigationHandler(testWebsitesData, chromeMock),
   }
 })
 
@@ -103,13 +104,10 @@ test('handleNavigation should ignore non-amazon and non-genius URLs', async (t) 
 })
 
 test.serial(
-  'handleNavigation should not modify URL if affiliate ID is not found',
+  'handleNavigation should not modify URL if website is not supported',
   async (t) => {
-    const getSyncStub = t.context.navigationHandler.chrome.storage.sync.get
-    getSyncStub.callsArgWith(1, {[`${t.context.affiliateId}AffiliateId`]: null})
-
     const details = {
-      url: 'https://www.amazon.com/dp/B0BKC67D3V?tag=oldTag',
+      url: 'https://www.example.com/some/path',
       tabId: 1,
     }
 
@@ -118,21 +116,20 @@ test.serial(
     t.is(
       t.context.lastUpdatedTabUrl,
       undefined,
-      'URL should not be modified if affiliate ID is not found.',
+      'URL should not be modified for unsupported websites.',
     )
   },
 )
 
 test.serial(
-  'handleNavigation should process search URL and modify it if affiliate ID is set',
+  'handleNavigation should process search URL and modify it with hardcoded affiliate ID',
   async (t) => {
     const details = {
       url: 'https://www.amazon.de/s?k=apple+airpods+wireless+ear+buds+bluetooth+headphones+with+lightning+charging+case+included+over+24+hours+of+battery+life+effortless+setup+for+iphone&geniuslink=true&tag=macr05-21',
       tabId: 123,
     }
     const expectedUrl =
-      'https://www.amazon.de/s?k=apple+airpods+wireless+ear+buds+bluetooth+headphones+with+lightning+charging+case+included+over+24+hours+of+battery+life+effortless+setup+for+iphone&geniuslink=true&tag=' +
-      t.context.affiliateId
+      'https://www.amazon.de/s?k=apple+airpods+wireless+ear+buds+bluetooth+headphones+with+lightning+charging+case+included+over+24+hours+of+battery+life+effortless+setup+for+iphone&geniuslink=true&tag=monzonline-21'
 
     await t.context.navigationHandler.handleNavigation(details)
 

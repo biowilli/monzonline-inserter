@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640" height="400" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="640" height="400" fill="#f8f9fa"/>
+  
+  <!-- Heart icon centered -->
+  <g transform="translate(490,250) scale(12.5)">
+    <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" fill="#e74c3c" stroke="#c0392b" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Extension name below heart -->
+  <text x="640" y="610" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="18" 
+        font-weight="bold" 
+        fill="#333">
+    Monzonline Affiliate Tag Injector
+  </text>
+  
+  <!-- Description below name -->
+  <text x="640" y="660" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="14" 
+        fill="#666">
+    Automatically adds affiliate tags to Amazon URLs
+  </text>
+</svg>
