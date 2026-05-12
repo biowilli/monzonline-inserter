@@ -19,13 +19,14 @@ This is a Chrome extension (Manifest V3) that automatically injects Amazon affil
 **Background Service Worker** (`background.ts`):
 - Entry point that initializes the NavigationHandler
 - Listens for `chrome.webNavigation.onBeforeNavigate` events
-- Supports 18 Amazon domains plus Geni.us links
+- Supports 6 Amazon domains (amazon.de, .com, .fr, .it, .es, .co.uk)
+- Contains bundled code for Chrome extension compatibility (no ES6 modules)
 
 **NavigationHandler** (`navigation-handler.ts`):
 - Main business logic for URL modification
 - Validates supported websites and URL patterns
-- Generates affiliate links for Amazon and Geni.us
-- Manages Chrome storage for affiliate IDs
+- Generates affiliate links with tag parameter injection
+- Uses hardcoded affiliate IDs (monzonline-* pattern)
 - Performs tab redirects when URLs are modified
 
 **Validator** (`validator.ts`):
@@ -41,7 +42,7 @@ This is a Chrome extension (Manifest V3) that automatically injects Amazon affil
 
 - **Dependency Injection**: Components receive dependencies via constructor
 - **URL Manipulation**: Uses native URL API for parsing and modifying URLs
-- **Chrome Extension APIs**: Storage sync API for affiliate IDs, tabs API for redirects
+- **Chrome Extension APIs**: webNavigation API for URL interception, tabs API for redirects
 - **Error Handling**: Graceful fallbacks return original URLs on errors
 
 ### Test Strategy
@@ -50,3 +51,18 @@ This is a Chrome extension (Manifest V3) that automatically injects Amazon affil
 - Integration tests in `navgation-handler.int.test.ts` (note typo in filename)
 - Unit tests for individual components
 - Tests run with compilation to `dist/` directory
+- Uses Sinon for mocking Chrome APIs in tests
+
+### Build Process
+
+- TypeScript compilation with target ES2015 for Chrome compatibility
+- Assets (HTML, JSON, PNG) copied to `dist/` via copyfiles
+- XO linter with Prettier integration for code formatting
+- Bestzip for creating distribution packages
+
+### Extension Architecture
+
+- **Manifest V3**: Uses service worker instead of background pages
+- **Host Permissions**: Limited to specific Amazon domains for security
+- **No Storage API**: Affiliate IDs are hardcoded in the extension
+- **URL Pattern Matching**: Validates product pages (`/dp/`, `/gp/product/`) and search pages (`/s` with `k=` parameter)

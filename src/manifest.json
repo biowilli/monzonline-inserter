@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Monzonline Affiliate Tag Injector",
-  "version": "1.0",
+  "version": "1.0.2",
   "description": "Automatically injects Monzonline affiliate tags into Amazon URLs for supported countries.",
   "permissions": [
-    "webNavigation",
-    "tabs"
+    "webNavigation"
   ],
   "icons": {
     "16": "favicons/favicon-16x16.png",
@@ -23,6 +22,7 @@
     "*://amazon.co.uk/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   }
 }

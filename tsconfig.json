@@ -1,11 +1,9 @@
 {
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "module": "None",
-    "target": "ES2015",
+    "module": "Node16",
     "outDir": "dist",
-    "sourceMap": true,
-    "lib": ["ES2015", "DOM"]
+    "sourceMap": true
   },
   "include": [
     "./src/**/*"

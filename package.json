@@ -1,7 +1,7 @@
 {
   "name": "monzonline-inserter",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": {
     "url": "git+https://github.com/biowilli/monzonline-inserter.git"
   },
@@ -21,7 +21,7 @@
   },
   "type": "module",
   "scripts": {
-    "zip": "rimraf monzonline-inserter.zip && bestzip monzonline-inserter.zip dist",
+    "zip": "node build-releases.js",
     "build": "rimraf dist && tsc && rimraf dist/tests/ && copyfiles -u 1 \"src/**/*.{html,json,png}\" dist",
     "test": "rimraf dist && ava && rimraf dist/tests",
     "lint": "xo --fix",

@@ -28,7 +28,7 @@ export class NavigationHandler {
         parsedUrl.pathname.includes('/s') && parsedUrl.search.includes('k=')
 
       // Remove existing referral if present
-      parsedUrl.href = parsedUrl.href.replaceAll(/\/ref=([^/]*)/g, '')
+      parsedUrl.href = parsedUrl.href.replace(/\/ref=([^/]*)/g, '')
 
       if (!isSearchPage && !parsedUrl.pathname.includes('/ref=nosim')) {
         parsedUrl.pathname += parsedUrl.pathname.endsWith('/')
