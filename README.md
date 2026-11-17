@@ -8,7 +8,9 @@ This Chrome extension inserts your affiliate tag when you visit Amazon.
 ### 🛠 Installation
 
 To install the extension:
-https://chrome.google.com/webstore/detail/referral-link-inserter/obaecligagaohlaficpfdplmgfpehcbo
+
+- Chrome: https://chromewebstore.google.com/detail/mgbffadhcogicidabjfkdcnplapdgghf
+- Firefox: https://addons.mozilla.org/firefox/addon/monzonline-affiliate-tag/
 
 Alternatively, you can:
 
@@ -40,7 +42,7 @@ This extension may not be suitable for everyone due to several limitations assoc
 
 - **Personal and Shared Orders:** Commissions are not provided for personal orders or orders made through one's own affiliate link. Additionally, commissions are not earned on orders placed through affiliate links that have been shared with friends or publicly distributed outside of personal websites or social media channels managed by the affiliate.
 - **Geographical Restrictions:** Residents of certain states or countries where the Amazon Affiliate Program is not supported cannot earn commissions.
-- **Browser Compatibility:** The extension is currently only available for Google Chrome, limiting users of other browsers such as Firefox, Safari, or Edge.
+- **Browser Compatibility:** The extension is currently only available for Google Chrome and Firefox, limiting users of other browsers such as Safari or Edge.
 - **Product Eligibility:** Not all products on Amazon are eligible for affiliate commissions, with some categories or specific products excluded from the program.
 - **Ad Blockers:** The functionality of the extension can be compromised by ad blockers, which may interfere with the insertion and tracking of affiliate links.
 - **Returned or Cancelled Orders:** Commissions can be revoked if the customer returns or cancels the order, affecting potential earnings.
@@ -50,7 +52,7 @@ Users should review the Amazon Affiliate Program’s terms and conditions to ful
 ### 💡 TODO
 
 - [x] Add unit tests
-- [ ] Add Firefox support
+- [x] Add Firefox support
 
 ### 🤝 Contributing
 
