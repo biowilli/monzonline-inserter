@@ -19,7 +19,7 @@ This is a Chrome extension (Manifest V3) that automatically injects Amazon affil
 **Background Service Worker** (`background.ts`):
 - Entry point that initializes the NavigationHandler
 - Listens for `chrome.webNavigation.onBeforeNavigate` events
-- Supports 6 Amazon domains (amazon.de, .com, .fr, .it, .es, .co.uk)
+- Supports 10 Amazon domains (amazon.de, .fr, .it, .es, .co.uk, .nl, .com.be, .pl, .se, .ie), affiliate IDs live in `websites.ts`
 - Contains bundled code for Chrome extension compatibility (no ES6 modules)
 
 **NavigationHandler** (`navigation-handler.ts`):
