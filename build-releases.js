@@ -40,14 +40,14 @@ const chromeBaseZipName = `${date}_v${version}_chrome_monzonline-inserter.zip`
 const {filename: chromeZipName, fullPath: chromeZipPath} = getUniqueFilename('releases', chromeBaseZipName)
 
 console.log(`📦 Creating Chrome ZIP: ${chromeZipName}`)
-execSync(`bestzip "${chromeZipPath}" dist`, {stdio: 'inherit'})
+execSync(`bestzip "${path.resolve(chromeZipPath)}" *`, {cwd: 'dist', stdio: 'inherit'})
 
 // Create Firefox ZIP with unique naming
 const firefoxBaseZipName = `${date}_v${version}_firefox_monzonline-inserter.zip`
 const {filename: firefoxZipName, fullPath: firefoxZipPath} = getUniqueFilename('releases', firefoxBaseZipName)
 
 console.log(`🦊 Creating Firefox ZIP: ${firefoxZipName}`)
-execSync(`bestzip "${firefoxZipPath}" firefox`, {stdio: 'inherit'})
+execSync(`bestzip "${path.resolve(firefoxZipPath)}" *`, {cwd: 'firefox', stdio: 'inherit'})
 
 console.log('✅ Successfully created both ZIP files:')
 console.log(`   📁 releases/${chromeZipName}`)
