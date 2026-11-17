@@ -14,12 +14,7 @@
     "256": "favicons/favicon-256x256.png"
   },
   "host_permissions": [
-    "*://amazon.de/*",
-    "*://amazon.com/*",
-    "*://amazon.fr/*",
-    "*://amazon.it/*",
-    "*://amazon.es/*",
-    "*://amazon.co.uk/*"
+    "*://amazon.de/*"
   ],
   "background": {
     "service_worker": "background.js",

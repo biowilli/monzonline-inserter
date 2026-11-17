@@ -27,7 +27,7 @@ The extension serves a single purpose: automatically adding Monzonline affiliate
 
 - **webNavigation**: Required to detect when you navigate to Amazon pages
 - **tabs**: Required to redirect to modified URLs with affiliate tags
-- **Host permissions**: Limited to Amazon domains only (amazon.de, amazon.com, amazon.fr, amazon.it, amazon.es, amazon.co.uk)
+- **Host permissions**: Limited to Amazon domains only (amazon.de)
 
 ### Data Processing
 
@@ -66,7 +66,7 @@ Die Erweiterung dient einem einzigen Zweck: Das automatische Hinzufügen von Mon
 
 - **webNavigation**: Erforderlich, um zu erkennen, wann Sie zu Amazon-Seiten navigieren
 - **tabs**: Erforderlich, um zu modifizierten URLs mit Affiliate-Tags weiterzuleiten
-- **Host-Berechtigungen**: Beschränkt auf Amazon-Domains (amazon.de, amazon.com, amazon.fr, amazon.it, amazon.es, amazon.co.uk)
+- **Host-Berechtigungen**: Beschränkt auf Amazon-Domains (amazon.de)
 
 ### Datenverarbeitung
 

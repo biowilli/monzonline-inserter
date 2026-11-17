@@ -1,12 +1,7 @@
 // Firefox-compatible Background Script for Monzonline Affiliate Extension
 
 const websitesData = [
-  { hostSuffix: 'amazon.de', affiliateId: 'monzonline-21' },
-  { hostSuffix: 'amazon.com', affiliateId: 'monzonline-21' },
-  { hostSuffix: 'amazon.fr', affiliateId: 'monzonline0d-21' },
-  { hostSuffix: 'amazon.it', affiliateId: 'monzonline02-21' },
-  { hostSuffix: 'amazon.es', affiliateId: 'monzonline08-21' },
-  { hostSuffix: 'amazon.co.uk', affiliateId: 'monzonline05-21' }
+  { hostSuffix: 'amazon.de', affiliateId: 'monzonline0a-21' }
 ];
 
 function isSupportedWebsite(url) {
@@ -108,12 +103,7 @@ if (api && api.webNavigation) {
     handleNavigation,
     {
       url: [
-        { hostContains: 'amazon.de' },
-        { hostContains: 'amazon.com' },
-        { hostContains: 'amazon.fr' },
-        { hostContains: 'amazon.it' },
-        { hostContains: 'amazon.es' },
-        { hostContains: 'amazon.co.uk' }
+        { hostContains: 'amazon.de' }
       ]
     }
   );

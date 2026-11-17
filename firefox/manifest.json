@@ -13,12 +13,7 @@
   
   "permissions": [
     "webNavigation",
-    "*://amazon.de/*",
-    "*://amazon.com/*",
-    "*://amazon.fr/*",
-    "*://amazon.it/*",
-    "*://amazon.es/*",
-    "*://amazon.co.uk/*"
+    "*://amazon.de/*"
   ],
   
   "icons": {
